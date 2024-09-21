@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Responsive design */
+
+/* Tablet and Mobile */
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-and-search-desktop {
+        display: none;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .menu-and-search-mobile {
+        width: 100%;
+    }
+
+    .login-signup {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.carousel__slide {
+    /*padding: 5px;*/
+}
+
+.carousel__item {
+    width: 70%;
+}
+
+.carousel__viewport {
+    perspective: 2000px;
+}
+
+.carousel__track {
+    transform-style: preserve-3d;
+}
+
+.carousel__slide--sliding {
+    transition: 0.5s;
+}
+
+.carousel__slide {
+    opacity: 0.9;
+    transform: rotateY(-20deg) scale(0.9);
+}
+
+.carousel__slide--active ~ .carousel__slide {
+    transform: rotateY(20deg) scale(0.9);
+}
+
+.carousel__slide--prev {
+    opacity: 1;
+    transform: rotateY(-10deg) scale(0.95);
+}
+
+.carousel__slide--next {
+    opacity: 1;
+    transform: rotateY(10deg) scale(0.95);
+}
+
+.carousel__slide--active {
+    opacity: 1;
+    transform: rotateY(0) scale(1.1);
+}
+
+a,
+a.router-link-active {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+}
+
+a::after,
+a.router-link-active::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%); /* Center the underline horizontally */
+    width: 0;
+    height: 2px; /* Adjust height of underline */
+    background-color: #fff; /* Color of the underline */
+    transition: width 0.3s ease-in-out; /* Animation speed and style */
+}
+
+/* Hover state - expand the underline */
+a:hover::after {
+    width: 100%;
+}
+
+/* Active state - show full underline */
+a.router-link-active::after {
+    width: 100%;
+}
+
+@layer base {
+    body {
+        font-family: "Poppins", sans-serif;
+    }
+}
