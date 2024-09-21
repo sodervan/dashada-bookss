@@ -43,7 +43,6 @@
         </div>
         <div>
           <router-link
-            @click="fetchBooks"
             to="/collections"
             class="px-4 py-3 flex bg-[#F5227A] justify-between rounded-lg items-center w-full md:w-[49%]"
           >
@@ -118,11 +117,6 @@ export default {
         "https://res.cloudinary.com/dmlgns85e/image/upload/v1726066755/images_phmhr5.jpg",
       ],
     };
-  },
-  methods: {
-    fetchBooks() {
-      this.$store.dispatch("fetchBooksByISBNs");
-    },
   },
 };
 </script>
