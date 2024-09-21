@@ -42,13 +42,13 @@
           </div>
         </div>
         <div>
-          <router-link
-            to="/update"
+          <button
+            @click="scrollToSelections"
             class="px-4 py-3 flex bg-[#F5227A] justify-between rounded-lg items-center w-full md:w-[49%]"
           >
-            <button class="text-white">Go to collections</button>
+            <span class="text-white">Go to collections</span>
             <i class="fi fi-rr-arrow-right text-white"></i>
-          </router-link>
+          </button>
         </div>
       </div>
     </div>
@@ -71,13 +71,12 @@
     </div>
   </div>
 
-<!--  <router-link to="/update">Update</router-link>-->
   <Features />
   <Trending />
   <ChatBot />
-  <Categories />
+  <Categories ref="categoriesSection" />
   <CantFindBook />
-  <!--  <FlashSale />-->
+  <!-- <FlashSale /> -->
   <News />
   <Testimonial />
   <Footer />
@@ -90,7 +89,6 @@ import Footer from "./Footer.vue";
 import Categories from "./Categories.vue";
 import Testimonial from "./Testimonial.vue";
 import News from "./News.vue";
-// import FlashSale from "./FlashSale.vue";
 import CantFindBook from "./CantFindBook.vue";
 import ChatBot from "./ChatBot.vue";
 
@@ -103,7 +101,6 @@ export default {
     CantFindBook,
     Testimonial,
     News,
-    // FlashSale,
     ChatBot,
   },
   data() {
@@ -117,6 +114,16 @@ export default {
         "https://res.cloudinary.com/dmlgns85e/image/upload/v1726066755/images_phmhr5.jpg",
       ],
     };
+  },
+  methods: {
+    scrollToSelections() {
+      const target = this.$refs.categoriesSection;
+      if (target) {
+        target.$el.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+    },
   },
 };
 </script>
