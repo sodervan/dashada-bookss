@@ -1,24 +1,26 @@
 <template>
-  <div class="w-full h-screen flex items-center justify-center">
+  <div class="w-full h-screen flex items-center justify-center px-4 md:px-0 my-28">
     <!-- Testimonial Wrapper -->
-    <div class="flex w-4/5 h-3/4 bg-white shadow-lg rounded-lg overflow-hidden">
+    <div
+      class="flex flex-col md:flex-row w-full md:w-4/5 md:h-3/4 bg-white shadow-lg rounded-lg overflow-hidden"
+    >
       <!-- Left Side (Intro with Stacked Circles) -->
       <div
-        class="w-1/2 p-8 flex flex-col justify-center bg-gradient-to-br from-purple-400 to-blue-600"
+        class="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center bg-gradient-to-br from-purple-400 to-blue-600 text-center md:text-left"
       >
-        <h2 class="text-4xl font-bold text-white mb-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 md:mb-6">
           What Our Customers Say
         </h2>
-        <p class="text-white text-lg mb-10">
+        <p class="text-white text-base md:text-lg mb-6 md:mb-10">
           Our customers love us. Read their testimonials below to learn why we
           are trusted by thousands of happy users.
         </p>
         <!-- Stacked Circles -->
-        <div class="flex -space-x-4">
+        <div class="flex justify-center md:justify-start -space-x-4">
           <div
             v-for="n in 5"
             :key="n"
-            class="w-12 h-12 bg-white text-gray-800 rounded-full border-4 border-gray-200 flex items-center justify-center text-lg font-bold"
+            class="w-10 h-10 md:w-12 md:h-12 bg-white text-gray-800 rounded-full border-4 border-gray-200 flex items-center justify-center text-sm md:text-lg font-bold"
           >
             U{{ n }}
           </div>
@@ -26,7 +28,9 @@
       </div>
 
       <!-- Right Side (Testimonial Cards) -->
-      <div class="w-1/2 relative p-8 flex flex-col items-center justify-center">
+      <div
+        class="w-full md:w-1/2 relative p-6 md:p-8 flex flex-col items-center justify-center"
+      >
         <div class="relative w-full h-64">
           <!-- Stacked Cards -->
           <div
@@ -36,34 +40,40 @@
               'opacity-0 scale-90 z-0': index !== currentTestimonial,
               'opacity-100 scale-100 z-10': index === currentTestimonial,
             }"
-            class="absolute inset-0 bg-white p-6 shadow-lg rounded-lg transition-all duration-500 ease-in-out"
+            class="absolute inset-0 bg-white p-4 md:p-6 shadow-lg rounded-lg transition-all duration-500 ease-in-out"
           >
-            <p class="text-gray-600 mb-4">{{ testimonial.message }}</p>
-            <div class="mt-4 flex items-center space-x-4">
+            <p class="text-gray-600 text-sm md:text-base mb-2 md:mb-4">
+              {{ testimonial.message }}
+            </p>
+            <div class="mt-2 md:mt-4 flex items-center space-x-3 md:space-x-4">
               <img
                 :src="testimonial.image"
                 alt="profile"
-                class="w-12 h-12 rounded-full"
+                class="w-10 h-10 md:w-12 md:h-12 rounded-full"
               />
               <div>
-                <p class="font-bold">{{ testimonial.name }}</p>
-                <p class="text-sm text-gray-500">{{ testimonial.position }}</p>
+                <p class="font-bold text-sm md:text-base">
+                  {{ testimonial.name }}
+                </p>
+                <p class="text-xs md:text-sm text-gray-500">
+                  {{ testimonial.position }}
+                </p>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Buttons -->
-        <div class="mt-6 flex space-x-4">
+        <div class="mt-4 md:mt-6 flex space-x-3">
           <button
             @click="prevTestimonial"
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none text-sm md:text-base"
           >
             Prev
           </button>
           <button
             @click="nextTestimonial"
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none text-sm md:text-base"
           >
             Next
           </button>
@@ -104,18 +114,16 @@ export default {
   },
   methods: {
     prevTestimonial() {
-      if (this.currentTestimonial > 0) {
-        this.currentTestimonial--;
-      } else {
-        this.currentTestimonial = this.testimonials.length - 1;
-      }
+      this.currentTestimonial =
+        this.currentTestimonial > 0
+          ? this.currentTestimonial - 1
+          : this.testimonials.length - 1;
     },
     nextTestimonial() {
-      if (this.currentTestimonial < this.testimonials.length - 1) {
-        this.currentTestimonial++;
-      } else {
-        this.currentTestimonial = 0;
-      }
+      this.currentTestimonial =
+        this.currentTestimonial < this.testimonials.length - 1
+          ? this.currentTestimonial + 1
+          : 0;
     },
   },
 };

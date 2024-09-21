@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-secondaryPurple min-h-screen flex flex-col md:flex-row items-center md:py-48 gap-10 md:gap-[40px] px-5 md:px-20"
+    class="bg-secondaryPurple min-h-screen flex flex-col pt-24 md:flex-row items-center md:py-48 gap-10 md:gap-[40px] px-5 md:px-20"
   >
     <!-- Left side: Text content -->
     <div class="w-full md:w-[45%]">

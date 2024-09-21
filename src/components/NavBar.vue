@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+  <div class="fixed top-0 left-0 w-full bg-white shadow-md z-[2000]">
     <div
       class="flex flex-wrap items-center px-4 py-3 justify-between lg:px-10 lg:py-5"
     >

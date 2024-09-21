@@ -2,7 +2,7 @@
   <transition name="fade">
     <div
       v-if="showOrderPage"
-      class="order-page fixed inset-0 bg-white z-50 flex items-center justify-center overflow-y-auto"
+      class="order-page fixed inset-0 bg-white z-50 flex items-center justify-center overflow-y-auto pt-20"
     >
       <div
         class="order-container w-full max-w-4xl bg-white rounded-lg shadow-lg p-6 relative overflow-hidden transform transition-transform flex flex-col md:flex-row md:space-x-6"
@@ -227,6 +227,8 @@ export default {
 
 .order-container {
   animation: slideUp 0.6s ease;
+  max-height: calc(100vh - 80px); /* Adjust height */
+  overflow-y: auto; /* Enable scrolling */
 }
 
 @keyframes slideUp {

@@ -3,7 +3,7 @@
     <!-- Chatbot Widget -->
     <div
       :class="['chat-widget', widgetOpen ? 'w-80' : 'w-16']"
-      class="fixed right-0 bottom-0 mb-4 mr-4"
+      class="fixed right-0 bottom-0 mb-4 mr-4 z-[1000]"
     >
       <div
         class="widget-header bg-indigo-600 text-white p-2 cursor-pointer"
