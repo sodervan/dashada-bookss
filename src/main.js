@@ -3,13 +3,18 @@ import { createApp } from "vue";
 import { createRouter, createWebHistory } from "vue-router";
 import "./style.css";
 import App from "./App.vue";
-import Body from "./components/Body.vue";
+import Body from "./components/body.vue";
 import Countdown from "vue3-flip-countdown";
 import UPDATE from "./components/UPDATE.vue";
 import { createStore } from "vuex";
 import BookDetailsPage from "./components/BookDetailsPage.vue";
 
-
+// List of 20 ISBNs to fetch book details
+// const ISBNs = [
+//   "9780143128540", // The Goldfinch
+//   // The Alchemist
+// ];
+//
 // // Vuex Store
 const store = createStore({
   state() {
@@ -18,8 +23,18 @@ const store = createStore({
       books: [],
     };
   },
+  mutations: {
+    toggleTheMenu(state) {
+      state.toggleMenu = !state.toggleMenu;
+    },
+    // SET_BOOKS(state, books) {
+    //   state.books = books;
+    // },
+    // CLEAR_BOOKS(state) {
+    //   state.books = [];
+    // },
+  },
 });
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
