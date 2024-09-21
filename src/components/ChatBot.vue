@@ -105,7 +105,7 @@ export default {
       this.userInput = "";
       this.loading = true;
 
-      // Send message to OpenAI API
+
       try {
         const aiResponse = await this.getAIResponse(userMessage.content);
         this.messages.push({ id: Date.now(), role: "ai", content: aiResponse });
