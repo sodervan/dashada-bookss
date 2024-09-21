@@ -90,7 +90,7 @@ import Footer from "./Footer.vue";
 import Categories from "./Categories.vue";
 import Testimonial from "./Testimonial.vue";
 import News from "./News.vue";
-import FlashSale from "./FlashSale.vue";
+// import FlashSale from "./FlashSale.vue";
 import CantFindBook from "./CantFindBook.vue";
 import ChatBot from "./ChatBot.vue";
 
@@ -103,7 +103,7 @@ export default {
     CantFindBook,
     Testimonial,
     News,
-    FlashSale,
+    // FlashSale,
     ChatBot,
   },
   data() {
