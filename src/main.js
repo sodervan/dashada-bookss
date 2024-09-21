@@ -3,7 +3,7 @@ import { createApp } from "vue";
 import { createRouter, createWebHistory } from "vue-router";
 import "./style.css";
 import App from "./App.vue";
-import Body from "./components/body.vue";
+import Body from "./components/Body.vue";
 import Countdown from "vue3-flip-countdown";
 import UPDATE from "./components/UPDATE.vue";
 import BookDetailsPage from "./components/BookDetailsPage.vue";
