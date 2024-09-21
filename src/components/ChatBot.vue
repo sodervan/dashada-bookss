@@ -88,9 +88,88 @@ export default {
   },
   methods: {
     toggleWidget() {
-      this.widgetOpen = !this.widgetOpen;
+      this.widgetOpen = !this.widgetOpen; // Toggle widget open/closed state
     },
-    // Other methods for sending messages...
+    async sendMessage() {
+      if (this.userInput.trim() === "") return;
+
+      // Add user message to chat
+      const userMessage = {
+        id: Date.now(),
+        role: "user",
+        content: this.userInput,
+      };
+      this.messages.push(userMessage);
+
+      // Clear input
+      this.userInput = "";
+      this.loading = true;
+
+      // Send message to OpenAI API
+      try {
+        const aiResponse = await this.getAIResponse(userMessage.content);
+        this.messages.push({ id: Date.now(), role: "ai", content: aiResponse });
+      } catch (error) {
+        this.messages.push({
+          id: Date.now(),
+          role: "ai",
+          content: "Oops! Something went wrong.",
+        });
+        console.error(error);
+      }
+
+      this.loading = false;
+    },
+    async getAIResponse(message) {
+      // const apiKey = "your-api-key-here"; // Add your actual key
+      try {
+        const response = await fetch(
+          "https://api.openai.com/v1/chat/completions",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              // Authorization: Bearer ${apiKey},
+            },
+            body: JSON.stringify({
+              model: "gpt-3.5-turbo", // Use "gpt-4" if needed
+              messages: [
+                {
+                  role: "system",
+                  content: "You are an expert in books and literature.",
+                },
+                { role: "user", content: message },
+              ],
+              max_tokens: 150,
+              temperature: 0.7,
+            }),
+          }
+        );
+
+        const data = await response.json();
+        if (response.ok && data.choices && data.choices.length > 0) {
+          return data.choices[0].message.content.trim();
+        } else {
+          return "I'm sorry, I couldn't retrieve the answer right now.";
+        }
+      } catch (error) {
+        return "Oops! Something went wrong while contacting the AI service.";
+      }
+    },
+    //   async fetchBooks() {
+    //     try {
+    //       const response = await fetch(
+    //           "https://dashada-books-bf412-default-rtdb.firebaseio.com/trending.json"
+    //       );
+    //       const data = await response.json();
+    //       this.books = Object.values(data || {});
+    //     } catch (error) {
+    //       console.error("Error fetching books:", error);
+    //     }
+    //   },
+    messageClass(message) {
+      return message.role === "user" ? "self-end" : "self-start";
+    },
   },
 };
 </script>

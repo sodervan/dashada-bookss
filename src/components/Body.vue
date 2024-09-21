@@ -71,7 +71,7 @@
     </div>
   </div>
 
-  <router-link to="/update">Update</router-link>
+<!--  <router-link to="/update">Update</router-link>-->
   <Features />
   <Trending />
   <ChatBot />
