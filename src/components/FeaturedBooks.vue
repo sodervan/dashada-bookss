@@ -46,7 +46,6 @@ export default {
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
-
 .book-item {
   border-radius: 10px;
   transition: transform 0.3s;
