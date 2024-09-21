@@ -43,7 +43,7 @@
         </div>
         <div>
           <router-link
-            to="/collections"
+            to="/update"
             class="px-4 py-3 flex bg-[#F5227A] justify-between rounded-lg items-center w-full md:w-[49%]"
           >
             <button class="text-white">Go to collections</button>
