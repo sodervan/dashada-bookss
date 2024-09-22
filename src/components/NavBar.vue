@@ -40,18 +40,7 @@
         </div>
 
         <!-- Login and Signup Links -->
-        <div class="flex gap-2">
-          <router-link
-            to="/login"
-            class="text-gray-700 hover:text-primaryPurple"
-            >Login</router-link
-          >
-          <router-link
-            to="/signup"
-            class="text-gray-700 hover:text-primaryPurple"
-            >Sign up</router-link
-          >
-        </div>
+        <WhatsappButton />
       </div>
     </div>
 
@@ -81,19 +70,8 @@
         </div>
 
         <!-- Login and Signup Links for Small Screens -->
-        <div class="flex flex-col gap-2 w-11/12">
-          <router-link
-            to="/login"
-            class="text-center text-gray-700 hover:text-primaryPurple py-2"
-          >
-            Login
-          </router-link>
-          <router-link
-            to="/signup"
-            class="text-center text-gray-700 hover:text-primaryPurple py-2"
-          >
-            Sign up
-          </router-link>
+        <div class="flex flex-col justify-center items-center">
+          <WhatsappButton />
         </div>
       </div>
     </div>
@@ -102,9 +80,10 @@
 
 <script>
 import Menu from "./Menu.vue";
+import WhatsappButton from "./WhatsappButton.vue";
 
 export default {
-  components: { Menu },
+  components: { Menu, WhatsappButton },
   data() {
     return {};
   },

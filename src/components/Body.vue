@@ -62,17 +62,18 @@
       >
         <img :src="item" alt="" class="w-full h-auto object-cover rounded-lg" />
       </div>
-      <div
-        class="absolute top-0 right-0 h-full w-40 pointer-events-none"
-        style="
-          background: linear-gradient(to left, hsl(286, 64%, 21%), transparent);
-        "
-      ></div>
+      <!--      <div-->
+      <!--        class="absolute top-0 right-0 h-full w-40 pointer-events-none"-->
+      <!--        style="-->
+      <!--          background: linear-gradient(to left, hsl(286, 64%, 21%), transparent);-->
+      <!--        "-->
+      <!--      ></div>-->
     </div>
   </div>
 
   <Features />
   <Trending />
+  <FeaturedBooks />
   <ChatBot />
   <Categories ref="categoriesSection" />
   <CantFindBook />
@@ -91,6 +92,7 @@ import Testimonial from "./Testimonial.vue";
 import News from "./News.vue";
 import CantFindBook from "./CantFindBook.vue";
 import ChatBot from "./ChatBot.vue";
+import FeaturedBooks from "./FeaturedBooks.vue";
 
 export default {
   components: {
@@ -102,6 +104,7 @@ export default {
     Testimonial,
     News,
     ChatBot,
+    FeaturedBooks,
   },
   data() {
     return {

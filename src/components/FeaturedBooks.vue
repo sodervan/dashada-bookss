@@ -1,5 +1,11 @@
 <template>
-  <div>
+  <div class="bg-gray-100 py-6 px-20 mb-28">
+    <h1 class="text-3xl font-bold">Featured Books</h1>
+    <p class="mt-4">
+      Discover new books, exclusive offers, and popular categories. Browse
+      through our collection, or ask the AI chatbot for more information about
+      any book!
+    </p>
     <h2 class="text-2xl font-bold mt-10">Trending and Featured Books</h2>
     <div class="books-display grid grid-cols-2 gap-6 mt-8">
       <div
@@ -46,6 +52,7 @@ export default {
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
+
 .book-item {
   border-radius: 10px;
   transition: transform 0.3s;
