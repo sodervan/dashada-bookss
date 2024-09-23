@@ -47,6 +47,14 @@ const router = createRouter({
       props: true,
     },
   ],
+  scrollBehavior(to, from, savedPosition) {
+    // Always scroll to top when navigating to a new route
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { top: 0 };
+    }
+  },
 });
 
 const app = createApp(App);
